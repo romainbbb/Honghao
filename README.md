@@ -141,6 +141,6 @@ L'octet maximum que j'ai défini maintenant est de 30 octets. Vous pouvez augmen
 
 De plus, je ne sais pas pourquoi le logiciel ne peut pas reconnaître le nom de notre service. A savoir : Service : Mesurer le rythme cardiaque. C'est ce que nous voulons. Mais maintenant c'est juste "service inconnu"
 
-
+Bien entendu, il existe sur le marché d'autres applications de téléphonie mobile permettant de recevoir des signaux Bluetooth. Si vous en trouvez une meilleure, vous pouvez l'essayer.
 
 
