@@ -101,7 +101,45 @@ Ensuite, vous pouvez parler à votre ordinateur et à votre téléphone portable
 "The device with name "ESP32-BT-Slave" is started.
 Now you can pair it with Bluetooth!"
 
+Il n'existe aucune documentation pour cette étape. Suivez simplement les étapes et vous n’avez pas besoin d’écrire le code vous-même.
 
+## heart+bluetooth
+
+must:TOOLS----FIRMWARE UPDATER
+
+application: nFR CONNECT:  https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&hl=en
+
+### code
+
+max30102_bluetooth
+
+### modifer
+      // 默认情况下，只发送心率
+      //String data = "Heartbeat: " + String(MAX30102._sHeartbeatSPO2.Heartbeat) + "bpm";
+
+
+      // 取消以下注释以发送血氧饱和度
+      // String data = "SPO2: " + String(MAX30102._sHeartbeatSPO2.SPO2) + "%";
+     
+      // 取消以下注释以发送温度
+      String data = "Temp: " + String(MAX30102.getTemperature_C()) + " C";
+
+Un seul type de données peut être envoyé à la fois. Sinon, même s’il peut être envoyé, il ne sera pas entièrement affiché.
+Ainsi, lorsque A est nécessaire, commentez B et C. Quand vous avez besoin de B, mettez A et C。
+
+Bien sûr, vous pouvez continuer vos recherches et découvrir comment envoyer plusieurs variables. Il est possible d'envoyer plusieurs services, mais j'ai échoué.
+
+If there is a prompt saying that BLE startup failed. Please go to "firmware updater" to update to version 1.5.
+
+### presenter
+devices_connect----client---Unknown service---primary servie---Value   "temps:23"
+
+### modifer
+BLEStringCharacteristic healthCharacteristic(healthCharacteristicUUID, BLERead | BLENotify, 30); // 最大30字节
+
+L'octet maximum que j'ai défini maintenant est de 30 octets. Vous pouvez augmenter la taille des octets et essayer d'envoyer trois variables à la fois.
+
+De plus, je ne sais pas pourquoi le logiciel ne peut pas reconnaître le nom de notre service. A savoir : Service : Mesurer le rythme cardiaque. C'est ce que nous voulons. Mais maintenant c'est juste "service inconnu"
 
 
 
