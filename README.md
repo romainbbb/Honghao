@@ -1,4 +1,3 @@
-# Honghao
-Microcontro_20231212
+# Microcontro_20231212
 ## 1
 ### 1
