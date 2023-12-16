@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Paramètres de Surveillance de la Santé</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function refreshData() {
+            fetch('/data')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('tempAmbiante').textContent = data.temperature + ' °C';
+                document.getElementById('humiditeAmbiante').textContent = data.humidity + ' %';
+                document.getElementById('tempCorporelle').textContent = data.bodyTemperature + ' °C';
+                document.getElementById('spo2').textContent = data.spo2 + ' %';
+                document.getElementById('rythmeCardiaque').textContent = data.heartRate + ' battements/minute';
+            })
+            .catch(error => console.error('Error:', error));
+        }
+        setInterval(refreshData, 4000); // Refresh every 4 seconds
+    </script>
+</head>
+<body>
+    <h1>Paramètres de Surveillance de la Santé</h1>
+    <p>Température ambiante: <span id="tempAmbiante">XXX</span></p>
+    <p>Humidité ambiante: <span id="humiditeAmbiante">XXX</span></p>
+    <p>Température corporelle: <span id="tempCorporelle">XXX</span></p>
+    <p>SPO2 (Saturation en oxygène): <span id="spo2">XXX</span></p>
+    <p>Rythme cardiaque: <span id="rythmeCardiaque">XXX</span></p>
+</body>
+</html>
