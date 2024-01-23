@@ -143,4 +143,6 @@ De plus, je ne sais pas pourquoi le logiciel ne peut pas reconnaître le nom de 
 
 Bien entendu, il existe sur le marché d'autres applications de téléphonie mobile permettant de recevoir des signaux Bluetooth. Si vous en trouvez une meilleure, vous pouvez l'essayer.
 
+### GPS
+max3012_gps
 
